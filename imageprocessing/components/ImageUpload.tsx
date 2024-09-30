@@ -6,6 +6,7 @@ import animationData from '../app/lottie/upload.json';
 const ImageUpload = () => {
     const [bgColor, setBgColor] = useState('rgb(246, 239, 229)');
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [uploadMessage, setUploadMessage] = useState('Upload Your CSV file');
         
 
         const handleFileChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -13,6 +14,7 @@ const ImageUpload = () => {
             if(file){
                 console.log('selected file', file.name)
                 setBgColor('blanchedalmond');
+                setUploadMessage('CSV file successfully uploaded');
             }
         }
     const handleClick = () =>{
@@ -33,7 +35,7 @@ const ImageUpload = () => {
             style={{ height: '300px', width: '300px', paddingTop:'72px' }} 
           />
           <div className='text-black p-[72px]  text-[38px] font-[700] rounded-[58px] top-[112px] absolute z-[-1]' style={{backgroundColor: bgColor }}>
-                Upload Your CSV file
+          {uploadMessage}
             </div>
           </label>
           <input
